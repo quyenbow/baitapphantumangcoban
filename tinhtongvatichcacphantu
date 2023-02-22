@@ -1,0 +1,66 @@
+#include<stdio.h>
+int main(){
+	int n;
+	int a[100];
+	do{
+		printf("Nhap so phan tu trong mang(Toi da 100): ");
+		scanf("%d",&n);
+	}while(n<1 || n>100);
+	for(int i=0;i<n;i++){
+		printf("Nhap a[%d] = ",i);
+		scanf("%d",&a[i]);
+	}
+	printf("Mang da nhap la: \n");
+	for(int i=0;i<n;i++){
+		printf("%d\t",a[i]);
+		}
+    int max;
+    max=a[0];
+    for(int i=0;i<n;i++){
+    	if(max<a[i]){
+    		max=a[i];
+		}
+	
+	}
+	printf("\nPhan tu lon nhat la: %d",max);
+	
+	int tong=0,tich=1;
+	
+	for(int i=0;i<n;i++){
+		tong=tong+a[i];
+		tich=tich*a[i];
+		
+	}
+	printf("\nTong cua cac phan tu la: %d",tong);
+	printf("\nTich cua cac phan tu la: %d",tich);
+	int trunggian;
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++){
+			if(a[i]>a[j]){
+				trunggian=a[i]; //truoc khi trao
+				a[i]=a[j]; //sau khi trao
+				a[j]=trunggian; //gan voi phan tu a[i] truoc khi trao
+			}
+		}
+	}
+	printf("\nThu tu lon dan cua mang la:\n");
+	for(int i=0;i<n;i++){
+		printf("%d\t",a[i]);
+	}
+	int trunggian2;
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++){
+			if(a[i]<a[j]){
+				trunggian2=a[i];
+				a[i]=a[j];
+				a[j]=trunggian2;
+			}
+		}
+		}
+		printf("\nThu tu giam dan cua mang la:\n");
+		for(int i=0;i<n;i++){
+			printf("%d\t",a[i]);
+		}
+	return 0;
+	
+}
